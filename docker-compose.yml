@@ -1,0 +1,16 @@
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    build:
+      context: ./node
+    ports:
+      - "8080:8080"
+    container_name: api
+  react-ui:
+    build:
+      context: ./react-app
+    ports:
+    - 3000:3000
+    stdin_open: true
